@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                Image("logo")
+                Image.logo
                 
                 HStack(spacing: 100) {
                     HStack {
@@ -60,7 +60,7 @@ struct ContentView: View {
                         gameHelper.playSound(sound: .erase)
                     }, label: {
                         VStack(spacing: 0) {
-                            Image("clear-btn")
+                            Image.clearBtn
                             Text("Clear")
                                 .font(.system(size: 16, weight: .medium))
                                 .foregroundColor(.primaryBlack)
@@ -85,7 +85,7 @@ struct ContentView: View {
                         gameHelper.playSound(sound: .next)
                     }, label: {
                         VStack(spacing: 0) {
-                            Image("skip-btn")
+                            Image.skipBtn
                             Text("Skip")
                                 .font(.system(size: 16, weight: .medium))
                         }

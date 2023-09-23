@@ -32,7 +32,7 @@ struct GameAlertView: View {
                         Button(action: {
                             gameHelper.startGame()
                         }, label: {
-                            Image("play-icon")
+                            Image.playIcon
                         })
                         
                         Text(gameHelper.firstGame ? "PLAY" : "PLAY AGAIN")

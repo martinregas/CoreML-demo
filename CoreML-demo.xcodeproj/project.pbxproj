@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717EAAAB2ABFA86C009EDE6F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717EAAAA2ABFA86C009EDE6F /* Images.swift */; };
 		71DEDEDB2AB5209200FC6B36 /* CoreML_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEDEDA2AB5209200FC6B36 /* CoreML_demoApp.swift */; };
 		71DEDEDD2AB5209200FC6B36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEDEDC2AB5209200FC6B36 /* ContentView.swift */; };
 		71DEDEDF2AB5209500FC6B36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71DEDEDE2AB5209500FC6B36 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		715FF6BF2ABBB0BE00938BA3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		715FF6C12ABBB0BE00938BA3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		717EAAAA2ABFA86C009EDE6F /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		71DEDED72AB5209200FC6B36 /* CoreML-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreML-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DEDEDA2AB5209200FC6B36 /* CoreML_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreML_demoApp.swift; sourceTree = "<group>"; };
 		71DEDEDC2AB5209200FC6B36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				71DEDF312AB7C38700FC6B36 /* Sounds.swift */,
 				71DEDF152AB76B1F00FC6B36 /* Colors.swift */,
+				717EAAAA2ABFA86C009EDE6F /* Images.swift */,
 				715FF6D92ABBC15F00938BA3 /* Extensions */,
 			);
 			path = Utils;
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71DEDF4B2ABA99D500FC6B36 /* DrawingModel.mlmodel in Sources */,
+				717EAAAB2ABFA86C009EDE6F /* Images.swift in Sources */,
 				71DEDF082AB5214900FC6B36 /* RandomAccessCollection+Extension.swift in Sources */,
 				71DEDF162AB76B2000FC6B36 /* Colors.swift in Sources */,
 				71DEDF122AB523A200FC6B36 /* View+Extension.swift in Sources */,
