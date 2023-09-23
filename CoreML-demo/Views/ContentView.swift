@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @State private var currentLine = Line()
     @State private var lines: [Line] = []
-        
+    
     @State private var boardSize: CGSize = .zero
     
     var body: some View {
@@ -106,48 +106,41 @@ struct ContentView: View {
         .onChange(of: gameHelper.showAlert) { _ in
             clearBoard()
         }
-        .onReceive(gameHelper.clearBoard) {
-            
-        }
     }
     
     var board: some View {
         GeometryReader { geo in
-            VStack {
-                Canvas { context, size in
-                    for line in lines {
-                        var path = Path()
-                        path.addLines(line.points)
-                        context.stroke(path, with: .color(.primaryBlack), lineWidth: 1)
-                    }
+            Canvas { context, size in
+                for line in lines {
+                    var path = Path()
+                    path.addLines(line.points)
+                    context.stroke(path, with: .color(.primaryBlack), lineWidth: 1)
                 }
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                .background(.white)
-                .cornerRadius(8)
-                .onAppear {
-                    boardSize = geo.size
-                }
-                .onChange(of: geo.size) { newSize in
-                    boardSize = newSize
-                }
-                .gesture(
-                    DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                        .onChanged({ value in
-                            let newPoint = value.location
-                            if currentLine.points.isEmpty || currentLine.points.first! != newPoint {
-                                gameHelper.playSound(sound: .pencil)
-                                currentLine.points.append(newPoint)
-                                lines.append(currentLine)
-                            }
-                        })
-                        .onEnded({ _ in
-                            gameHelper.stopSound(sound: .pencil)
-                            lines.append(currentLine)
-                            currentLine = Line(points: [])
-                        })
-                )
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.white)
+            .cornerRadius(8)
+            .onAppear {
+                calculateBoardSize(geo: geo)
+            }
+            .onChange(of: geo.size) { newSize in
+                calculateBoardSize(geo: geo)
+            }
+            .gesture(
+                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                    .onChanged({ value in
+                        let newPoint = value.location
+                        if currentLine.points.isEmpty || currentLine.points.first! != newPoint {
+                            gameHelper.playSound(sound: .pencil)
+                            currentLine.points.append(newPoint)
+                            lines.append(currentLine)
+                        }
+                    })
+                    .onEnded({ _ in
+                        gameHelper.stopSound(sound: .pencil)
+                        lines.append(currentLine)
+                        currentLine = Line(points: [])
+                    })
+            )
         }
     }
     
@@ -166,6 +159,11 @@ struct ContentView: View {
             return false
         }
         return true
+    }
+    
+    func calculateBoardSize(geo: GeometryProxy) {
+        boardSize = geo.size
+        boardSize.height += geo.safeAreaInsets.top + geo.safeAreaInsets.bottom
     }
 }
 

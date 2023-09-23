@@ -13,7 +13,6 @@ extension Color {
     static let darkBlue = Color(hex: "#010E50")
 }
 
-
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

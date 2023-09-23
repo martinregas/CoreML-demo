@@ -11,10 +11,10 @@ extension View {
     func snapshot(size: CGSize) -> UIImage {
         let controller = UIHostingController(rootView: self)
         let view = controller.view
- 
+
         view?.bounds = CGRect(origin: .zero, size: size)
         view?.backgroundColor = .clear
-        
+       
         let renderer = UIGraphicsImageRenderer(size: size)
         
         return renderer.image { _ in

@@ -23,16 +23,7 @@ class GameHelper: ObservableObject {
     private var cancellable: AnyCancellable?
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let audioHelper = AudioHelper()
-    
-    var clearBoard: AnyPublisher<Void, Never>
-    
-    init() {
-        clearBoard = search
-             .map { _ in () }
-             .receive(on: DispatchQueue.main)
-             .eraseToAnyPublisher()
-    }
-    
+
     func playSound(sound: Sounds) {
         audioHelper.play(sound: sound)
     }
@@ -94,15 +85,6 @@ class GameHelper: ObservableObject {
         
         if let output = output {
             let results = output.classLabelProbs.sorted { $0.1 > $1.1 }
-            
-//            let result = results.map { (key, value) in
-//                return "\(key) = \(String(format: "%.2f", value * 100))%"
-//            }.joined(separator: "\n")
-            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-            for result in results.prefix(10) {
-                print(result)
-            }
-            
             checkWord(results: results)
         }
     }
