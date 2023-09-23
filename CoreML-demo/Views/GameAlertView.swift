@@ -31,7 +31,6 @@ struct GameAlertView: View {
                         
                         Button(action: {
                             gameHelper.startGame()
-                            gameHelper.firstGame = false
                         }, label: {
                             Image("play-icon")
                         })
